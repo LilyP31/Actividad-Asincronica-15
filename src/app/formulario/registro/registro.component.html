@@ -1,0 +1,54 @@
+<section class="container">
+    <h2>Formulario de Registro</h2>
+    <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Carrera</th>
+            <th>Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let estudiante of estudiantes">
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.apellidos }}</td>
+            <td>{{ estudiante.carrera }}</td>
+            <td><button class="btn btn-danger" (click)="eliminarEstudiante(estudiante)">Eliminar</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <section class="container">
+        <h3>Formulario de Registro</h3>
+        <form (ngSubmit)="insertarDatos()">
+            <section class="row g-3">
+                <section class="col-auto p-2">
+                    <label class="col-form-label">Nombre:</label>
+                </section>
+                <section class="col-auto">
+                 <input class="form-control" [(ngModel)]="nuevoEstudiante.nombre" name="nombre">
+                </section>
+            </section>
+            <section class="row g-3">
+                <section class="col-auto p-2">
+                    <label class="col-form-label">Apellidos:</label>
+                </section>
+                <section class="col-auto">
+                    <input class="form-control" [(ngModel)]="nuevoEstudiante.apellidos" name="apellidos">
+                </section>
+            </section>
+            <section class="row g-3">
+                <section class="col-auto p-2">
+                    <label class="col-form-label">Carrera:</label>
+                </section>
+                <section class="col-auto">
+                    <input class="form-control" [(ngModel)]="nuevoEstudiante.carrera" name="carrera">
+                </section>
+            </section>
+            <section class="align-items-center p-3">
+                <button type="submit" class="btn btn-primary col-2">Guardar</button>
+                <button type="button" class="btn btn-success m-2" (click)="onClear()">Refrescar</button>
+            </section>
+          </form>
+      </section>
+</section>
